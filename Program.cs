@@ -22,7 +22,22 @@ class Program
         }
     }
 
-    static void Abrir() {}
+    static void Abrir() 
+    {
+        Console.Clear();
+        Console.WriteLine("Qual caminho do arquivo?");
+        String path = Console.ReadLine();
+
+        using (var file = new StreamReader(path))
+        {
+            string text = file.ReadToEnd();
+            Console.WriteLine(text);
+        }
+
+        Console.WriteLine("");
+        Console.ReadLine();
+        Menu();
+    }
 
     static void Editar() {
         Console.Clear();
